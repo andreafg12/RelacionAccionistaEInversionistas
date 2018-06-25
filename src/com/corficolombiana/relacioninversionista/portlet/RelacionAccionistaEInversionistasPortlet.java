@@ -25,6 +25,7 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 	private static final String VIEW = "/jsp/RelacionInversionistaView.jsp";
 	private static final String MSG_FILE_NOT_FOUND = "No se encontró el archivo";
 	private static final String ARCHIVO_VACIO = "Archivo vacío";
+	private static final String ERROR_DOVIEW = "Error en doview";
 	private static Logger logger = Logger.getLogger(RelacionAccionistaEInversionistasPortlet.class);
 
 
@@ -37,7 +38,7 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 			rd.include(request, response);
 
 		} catch (Exception e) {
-			logger.error("ERROR: " + e.getMessage());
+			logger.error(ERROR_DOVIEW + e.getMessage());
 		}
 	}
 
@@ -89,10 +90,10 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 				}
 			}
 		} catch (IOException e) {
-			logger.error("ERROR: " + e.getMessage());
+			logger.error(MSG_FILE_NOT_FOUND + e.getMessage());
 			response.getWriter().write("ERROR");
 		} catch (Exception e) {
-			logger.error("ERROR: " + e.getMessage());
+			logger.error("Error: " + e.getMessage());
 			response.getWriter().write("ERROR");
 		}
 	}
@@ -106,7 +107,7 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 		Collection<File> filesToSend = new ArrayList<File>();
 		for (String value  : valuesChecked) {
 			for (File file2 : file.listFiles()) {
-				if(file2.length() > 0) {
+				if(file2.length() == 0) {
 					throw new Exception(ARCHIVO_VACIO);	
 				}
 				nombreArchivo = file2.getName();
