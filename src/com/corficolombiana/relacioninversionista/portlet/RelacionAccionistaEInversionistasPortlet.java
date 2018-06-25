@@ -106,6 +106,9 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 		Collection<File> filesToSend = new ArrayList<File>();
 		for (String value  : valuesChecked) {
 			for (File file2 : file.listFiles()) {
+				if(file2.length() > 0) {
+					throw new Exception(ARCHIVO_VACIO);	
+				}
 				nombreArchivo = file2.getName();
 				numerocedula = nombreArchivo.substring(4, (nombreArchivo.length() - 11));
 				anio = nombreArchivo.substring(nombreArchivo.length() - 8, (nombreArchivo.length() - 4));
@@ -128,31 +131,27 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 
 	private void downloadFile(Collection<File> filesToSend, ResourceResponse response, OutputStream outStream, FileInputStream des) throws Exception {
 		for(File f: filesToSend) {
-			if(f.length() > 0) {
-				logger.info("length file: " + f.length()+" Nombre: "+ f.getName());
-				String minetype = "application/octet-stream";
-				String headerkey = "Content-Disposition";
-				String headerValue = String.format("attahcment; filename= \"%s\"", f.getName());
-				response.setContentType(minetype);
-				response.setProperty(headerkey, headerValue);
-				response.setContentLength((int) f.length());
-				try {
-					des = new FileInputStream(f);
-					byte[] buffer = new byte[4096];
-					int byteRead = -1;
-					while ((byteRead = des.read(buffer)) != -1) {
-						outStream.write(buffer, 0, byteRead);
-			
-					}
-					outStream.flush();
-					outStream.close();
-				} finally {
-					if(des != null) {
-						des.close();
-					}
+			logger.info("length file: " + f.length()+" Nombre: "+ f.getName());
+			String minetype = "application/octet-stream";
+			String headerkey = "Content-Disposition";
+			String headerValue = String.format("attahcment; filename= \"%s\"", f.getName());
+			response.setContentType(minetype);
+			response.setProperty(headerkey, headerValue);
+			response.setContentLength((int) f.length());
+			try {
+				des = new FileInputStream(f);
+				byte[] buffer = new byte[4096];
+				int byteRead = -1;
+				while ((byteRead = des.read(buffer)) != -1) {
+					outStream.write(buffer, 0, byteRead);
+		
 				}
-			} else {
-				throw new Exception(ARCHIVO_VACIO);
+				outStream.flush();
+				outStream.close();
+			} finally {
+				if(des != null) {
+					des.close();
+				}
 			}
 		}
 		
@@ -161,35 +160,29 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 
 	private void downloadListFile(Collection<File> filesToSend, ZipOutputStream zipOutputStream, FileInputStream des) throws Exception {		
 		for(File f: filesToSend) {
-			if(f.length() > 0) {
-				logger.info("length file: " + f.length()+" Nombre: "+ f.getName());
-				ZipEntry zipEntry = null;
-				
-				try {
-					des = new FileInputStream(f);
-					zipEntry = new ZipEntry(f.getName());
-					zipOutputStream.putNextEntry(zipEntry);
-					byte[] buffer = new byte[1024];
-					int byteRead = -1;
-					while ((byteRead = des.read(buffer)) != -1) {
-						zipOutputStream.write(buffer, 0, byteRead);
+			logger.info("length file: " + f.length()+" Nombre: "+ f.getName());
+			ZipEntry zipEntry = null;
 			
-					}
-				} catch (IOException e) {
-					logger.info("Cannot find " + f.getAbsolutePath());
-				} finally {
-					des.close();
-					if (zipEntry != null) {
-						zipOutputStream.closeEntry();
-					}
-					if (zipOutputStream != null) {
-						zipOutputStream.finish();
-						zipOutputStream.flush();
-						zipOutputStream.closeEntry();
-					}
+			try {
+				des = new FileInputStream(f);
+				zipEntry = new ZipEntry(f.getName());
+				zipOutputStream.putNextEntry(zipEntry);
+				byte[] buffer = new byte[1024];
+				int byteRead = -1;
+				while ((byteRead = des.read(buffer)) != -1) {
+					zipOutputStream.write(buffer, 0, byteRead);
+		
 				}
-			} else {
-				throw new Exception(ARCHIVO_VACIO);				
+			} catch (IOException e) {
+				logger.info("Cannot find " + f.getAbsolutePath());
+			} finally {
+				des.close();
+				if (zipEntry != null) {
+					zipOutputStream.closeEntry();
+				}
+				zipOutputStream.finish();
+				zipOutputStream.flush();
+				zipOutputStream.closeEntry();
 			}
 		}
 	}
