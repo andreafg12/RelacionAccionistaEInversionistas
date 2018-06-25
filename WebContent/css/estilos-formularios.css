@@ -1,0 +1,1432 @@
+@charset "utf-8";
+/* CSS Document Fiduciaria Bogotá*/
+
+
+
+b{
+
+    font-weight: bold;
+}
+
+/*Reset*/
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    font-family: Arial;
+	/*vertical-align: baseline;*/
+	/*box-sizing: content-box;*/
+}
+/* HTML5 soporte navegadores antiguos */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/*Visibilidad de elementos*/
+.oculto-web{
+	display: none;
+}
+html{
+		height: 100%;
+}
+body {
+	/*line-height: 1;*/
+    font-family: 'arialregular';
+	height: 100%;
+    color:#222 !important;
+}
+
+@font-face {
+	src:url('../fonts/fontawesome.eot');
+	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
+		url('../fonts/fontawesome.woff') format('woff'),
+		url('../fonts/fontawesome.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, html { font-size: 100%; 	padding: 0; margin: 0;}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+a {
+	color:#10498F;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #10498F;
+    text-decoration: underline;
+}
+
+@charset "utf-8";
+/* CSS Document */
+
+
+div.formulario div.camp {
+    float: left;
+    width: 100%;
+    margin: 0;
+
+   }
+
+#content-form{
+	width:100%;
+	max-width:625px;
+	float:left;
+	margin-right:5px;
+	margin-bottom:100px;
+    -ms-margin-bottom:100px;
+    -webkit-margin-bottom:100px
+	padding-left:10px;
+
+}	
+	
+.tipo-persona{
+	width:100%;
+	max-width:600px;
+	height:auto;
+	min-height:60px;
+	font-family:Arial;
+	font-size:13px;}	
+	
+/*chekbox */
+
+#radio-chek{
+	display:inline-block;
+	max-width:600px;
+	width:100%;
+	 font-family:Arial;
+	 font-size:13px;
+	 height:auto;
+	 min-height:50px}
+	 
+#radio-other{
+	display:inline-block;
+	max-width:600px;
+	width:100%;
+	 font-family:Arial;
+	 font-size:13px;
+	 height:auto;
+	 min-height:73px;
+     margin-top:50px;
+    }		 	
+	
+div.checkboxTipoPersona input[type="checkbox"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxTipoPersona input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+
+div.checkboxTipoPersona input[type="checkbox"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+	float:left;
+	width:47%;
+}
+
+div.checkbox input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll -16px top;
+}
+div.checkbox input[type="checkbox"] + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll left top;
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+div.checkbox label.imgCheck {
+    display: none;
+}
+div.aceptarCondiciones label {
+    font-weight: 400 !important;
+}
+
+div.formulario div.camposCheck  {
+    margin: 1px 0 0;
+	max-width:270px;
+	width:47%;
+	display:inline-block;
+}
+
+
+div.checkbox label.imgCheck {
+    display: none;
+}
+
+div.checkboxPrim input[type="checkbox"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+  	cursor: pointer;
+	float:left
+}
+
+div.checkbox input[type="checkbox"]:checked+label {
+    background: url(../images/check_radio_sheet.png) no-repeat -16px top;
+}
+
+input[type="radio"], input[type="checkbox"] {
+        display: none;
+    }
+	
+div.checkboxTipoPersona input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}	
+.icon-img-clave{
+
+	background: url(../images/reload.png);
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 10px;
+
+}
+
+.campo-ciudad{
+    max-width: 600px;
+    width: auto;
+    font-family: Arial;
+    font-size: 13px;
+    margin-left: 300px;
+    
+    }
+
+.img-clave{
+
+	background: url(../images/img-clave.jpg);
+	float: left;
+	width: 150px;
+    padding: 0 10px;
+    font-family: Arial;
+    font-size: 11px;
+    height: 36px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 3px;
+    --webkit-border-radius: 5px;
+    -moz-outline-radius: 7px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    margin: 10px 0;
+}
+
+/*    */
+
+#formulariocorreo{
+	margin:33px 0}
+
+#content-div.wrapBtnForm .btn-filter .cancelar{
+	width:100%;
+	max-width:600px;
+	float:left;
+	margin-right:5px;
+	background: #2A5AA8}
+	
+	
+#radio-chek{
+	display:inline-block;
+	max-width:500px;
+	width:100%;
+	 font-family:Arial;
+	 font-size:13px;
+	 height:auto;
+	 min-height:50px}	
+	
+div.checkboxTipoPersona input[type="checkbox"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxTipoPersona input[type="radio"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxTipoPersona input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+div.checkboxTipoPersona input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+
+
+div.checkboxTipoPersona input[type="checkbox"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+div.checkboxTipoPersona input[type="radio"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+div.checkbox input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll -16px top;
+}
+div.checkbox input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll -16px top;
+}
+
+div.checkbox input[type="checkbox"] + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll left top;
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+div.checkbox input[type="radio"] + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_radio_sheet.png) no-repeat scroll left top;
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+div.checkbox label.imgCheck {
+    display: none;
+}
+
+div.aceptarCondiciones label {
+    font-weight: 400 !important;
+}
+	
+div.formulario div.camposCheck  {
+    margin: 1px 0 0;
+	max-width:600px;
+	width:100%;
+}
+
+div.checkbox label.imgCheck {
+    display: none;
+}
+
+div.checkbox input[type="checkbox"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+  	cursor: pointer;
+}
+
+div.checkbox input[type="radio"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+div.checkboxPrim input[type="checkbox"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+  	cursor: pointer;
+}
+
+div.checkboxPrim input[type="radio"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+div.checkbox input[type="checkbox"]:checked+label {
+    background: url(../images/check_radio_sheet.png) no-repeat -16px top;
+}
+
+div.checkbox input[type="radio"]:checked+label {
+    background: url(../images/check_radio_sheet.png) no-repeat -16px top;
+}
+input[type="radio"], input[type="checkbox"] {
+        display: none;
+    }
+	
+div.checkboxTipoPersona input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}	
+
+div.checkboxTipoPersona input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}   
+
+input[type=text], input[type=password], .register, select,.register, textarea {
+  margin: 0px;
+  padding: 0 10px;
+  width: 90%;
+  font-family:Arial;
+  font-size:12px;
+ padding-top: 0px;
+  height: 36px;
+  color: #ccc;
+  opacity:0.8;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius:3px;
+  --webkit-border-radius: 5px;
+  -moz-outline-radius:7px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin:10px 0;
+}
+
+media="screen and (min-width: 769px)"
+input[type=text], input[type=password], .register select, .register textarea {
+    margin: 0px;
+    padding: 0 10px;
+  
+    height: 36px;
+    color: #ccc;
+    opacity: 0.8;
+    background: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 3px;
+    --webkit-border-radius: 5px;
+    -moz-outline-radius: 7px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    margin: 10px 0;
+	line-height:36;
+}
+input, textarea, select {
+    font-family: Arial;
+    font-size: 100%;
+    font-weight: inherit;
+}
+ .required{
+	max-width:600px;}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+contactenos.htmlmedia="screen and (min-width: 769px)"
+input {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+div.habeas-data {
+    background: #efefef none repeat scroll 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    float: left;
+    margin: 15px 0;
+    width: 100%;
+	max-width:600px;
+	padding:20px;
+	color:#888787;
+    font-family: Arial;
+    text-align: justify;
+    padding: 13px;
+	font-size:12px;	
+}
+
+input, textarea, select {    
+    font-family: Arial;
+    font-size: 100%;
+    font-weight: inherit;
+}	
+
+div.wrapBtnForm .btn-filter .cancelar {
+    background:#2A5AA8 none repeat scroll 0 0;
+    float: left;
+    font-size: 12px;
+    margin-top: -7px;
+	float:right;
+	font-family:Arial;
+	color:#FFF;
+}
+
+div.wrapBtnForm .btn-filter input[type="submit"].enviar {
+    margin-left: 0;
+}
+
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    
+}
+.btn-filter input[type="submit"], .btn-filter input[type="reset"], .btn-filter input[type="button"] {
+    background: #013475 none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: 700;
+    height: 33px !important;
+    margin-right: 15px;
+    margin-top: -7px;
+    padding: 0 17px;
+}
+#btn-cancelar{
+
+	background: #2A5AA8 !important;
+}
+
+.campos{
+	font-family:Arial;
+	font-size:13px;
+	width:100%;
+	height:auto;
+	min-height:50px;
+	margin-top:12px;
+	float:left}
+	
+.campos-cliente{
+	font-family:Arial;
+	font-size:13px;
+	width:100%;
+	height:auto;
+	min-height:50px;
+	margin-bottom:-60px;
+	float:left;
+	margin-top:40px;}	
+	
+.campos2{
+	font-family:Arial;
+	font-size:13px;
+	width:100%;
+	max-width:600px;
+	height:auto;
+	min-height:50px;
+
+	margin-bottom:20px;
+	float:left}
+			
+.campo{
+	max-width: 600px;
+	width: auto;
+	font-family: Arial;
+	font-size: 13px;
+	
+	}
+	
+.campo-cliente{
+	max-width: 600px;
+	float:right;
+	width: auto;
+	font-family: Arial;
+	font-size: 13px;
+}
+	
+
+div.formulario div.campos {
+    float: left;
+    width: 100%;
+    margin: 0;
+   }
+	
+	
+div.formulario div.campos div.campo {
+    float: left;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+.select2-container {
+    margin: 0;
+    position: relative;
+    display: inline-block; 
+    vertical-align: middle;
+}
+
+
+.campos  campos_2col {
+	display:inline-block;}
+	
+.selectCiudad{
+	}		
+select {
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    color: black;
+    background-color: white;
+    cursor: default;
+	padding:10px;
+	margin-top:10px;
+	
+    
+}
+.error-form{
+	
+	color:#922424;
+	background: #E6D1D1;
+	padding-top: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+	width: 340px;
+	float: left;
+	height: 30px;
+     margin-bottom: 50px;
+
+}
+
+.icon-admiracion{
+	background: url(../images/admiracion.png);
+	width: 30px;
+	height: 30px;
+	float:left;
+	
+}
+
+.campos_2col-last-child{
+		position:relative;
+		width:50%;
+		float:right;
+		display:inline-block;
+		top:-26px; 
+		
+		 }
+.div.txt-habeas {
+    padding: 13px;
+    color: #555;
+    font-family: Arial;
+    text-align: justify;
+}		 
+			
+			
+.esCliente	{
+	margin-top:30px;}		
+
+
+.htmlTipoIdentificacionPersona{
+	position: relative;
+	width: 60%;
+	float: left;
+
+	margin-bottom: 20px;
+}
+		
+.id-last-child{
+	top:-27px;}		
+		
+	
+		
+		
+.select2-container .select2-choice {
+   
+    border: 1px solid #eee;
+    color: #CCC;
+    display: block;
+    height: 35px;
+    line-height: 36px;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    	}
+	
+	
+div.campoComentarios textarea {
+  	resize: none;
+    height: 163px;
+    padding: 5px;
+	font-family:Arial;
+	font-size:11px;
+	margin-top:16px;
+    width: 100%;
+   
+   
+}
+
+
+.campoComentarios{
+	margin-bottom:10px;}
+	
+	
+.campoComentarios2{
+	margin-bottom:5px;}	
+
+.campoComentarios3{
+	float:left;
+	margin-bottom:5px;}	
+
+div.formulario div.campos {
+    float: left;
+    width: 50%;
+    margin: 0;
+   
+}
+div.habeas-data {
+    float: left;
+    width: 100%;
+     border: 1px solid rgba(0,0,0,0.1);
+	padding-bottom:28px;
+    background: #EFEFEF;
+}
+
+div.formulario div.identificacion, div.formulario div.campos_2col {
+    width: 46.1%;
+    margin-right: 5px;
+}
+
+div.formulario div.identificacion input[type="text"], div.formulario div.campos_2col input[type="text"] {
+    width: 44.8%;
+}
+div.formulario div.campos input[type="text"], div.formulario div.campos div.campoComentarios textarea {
+    
+    border: medium none;
+    color: #474646;
+    float: left;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 0;
+    padding-left: 5px;
+    width: 95.8%;
+}
+	
+	
+	.check.checkbox.checkboxTipoPersona. {
+    margin: 7px 2px 0;
+}
+div.checkbox {
+    height: auto !important;
+    padding: 5px;
+}
+div.checkbox {
+    float: left;
+    margin: 15px 2px 0 5px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+div.checkboxPrim {
+    height: auto !important;
+    padding: 5px;
+}
+div.checkboxPrim {
+    float: left;
+    margin: 13px 30px 50 0px;
+    height: 25px;
+}
+
+div.checkboxseg {
+    height: auto !important;
+    padding: 5px;
+	float: left;
+    margin: 15px 2px 0 20px;
+    
+}
+
+
+
+
+div.formulario div.identificacion, div.formulario div.campos_2col {
+    width: 48%;
+    margin-right: 5px;
+}
+
+
+#departamento{
+	 width:100%;
+	 max-width:290px;
+     float:left;
+	 background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;
+	
+  
+} 
+
+#tipo_identificacion{
+	max-width:283px;
+	background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;}
+
+
+#tipo_identificacion-ct{
+    max-width:608px;
+    background-image:url(../images/select-arrow.png)!important;
+    background-repeat:no-repeat;
+    background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.customSelect{
+	float:right;}
+
+
+.selectDepart{
+	float:right;
+	top:-80px;
+	}
+	
+.cliente{
+	float:left;
+	top:0;
+	width:100%;
+	min-width:500px;
+	display:inline-block;
+	}	
+	
+.selectDepart2{
+	float:left;
+	top:-30px;
+	
+	}
+	
+.selectDepart3{
+	float:left;
+	top:-60px;
+	
+	}			
+
+#ciudad{
+	width: 100%;
+	 max-width:290px;
+ background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;
+
+ }
+ 
+#EsCliente2{
+	width: 100%;
+	background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+	 max-width:290px;	
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;
+	
+
+ } 
+ 
+
+ 
+.customSelect{
+	min-width:280px;
+	position:relative;
+	width:100%;
+	float:left; 
+	margin-bottom:20px;
+	font-family:Arial;
+	font-size:11px;
+	} 
+	
+.customSelect2{
+	min-width:280px;
+	position:relative;
+	width: 100%;
+	float:left; 
+	margin-bottom:20px;
+	font-family:Arial;
+	font-size:11px;
+	}	
+	
+.customSelect3{
+	position:relative;
+	width: 100%;
+	float:left; 
+	margin-bottom:13px;
+	font-family:Arial;
+	font-size:11px;
+	margin-left:0px;}		
+	
+	
+  
+.nro_identificacion{
+	width: 289px;
+	float: left;
+
+}
+
+	
+
+#telefono1 {
+	 width: 93%;
+    margin-right: 10px;
+	float:left;}
+
+	
+
+.campos-telefonos{
+	display:inline-block}
+
+
+.selectPais	{
+	float:left;
+	}
+	
+#pais{
+	max-width:283px;
+	
+	background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;}	
+	
+		
+	
+	
+	
+#asunto{
+	background-image:url(../images/select-arrow.png)!important;
+  	background-repeat:no-repeat;
+  	background-position:right;
+   -moz-appearance: none;
+   text-indent: 0.01px;
+    text-overflow: '';
+	-webkit-appearance: none;
+ 	appearance: none;
+	font-family:Arial;
+	font-size:13px;
+	width:193%;}	
+
+
+#asunto2{
+	
+	-webkit-appearance: none;
+ 	appearance: none;
+	font-family:Arial;
+	font-size:13px;}		
+
+#content-form{
+	width:100%;
+	max-width:600px;
+	float:left;
+	margin-right:5px;
+	margin-bottom:40px;
+    -ms-margin-bottom:40px;
+    -webkit-margin-bottom:40px;
+    *margin-bottom:40px;
+}	
+	
+#btn-contactenos{
+	font-family:Arial;
+	font-size:12px;
+	color:#FFF;
+	text-align:center;}					
+	
+	
+#dos-columnas{
+	display:inline-block;
+	min-width:600px;
+	width:100%;
+	margin-top:20px;
+	}
+	
+		
+#client{
+
+    margin-top: 12px;
+	font-family:Arial;
+	font-size:13px;}	
+	
+	
+.select2-results .select2-result-label {
+    padding: 3px 7px 4px;
+    margin: 0px;
+    cursor: pointer;
+    min-height: 1em;
+    -moz-user-select: none;
+}
+
+.select2-results .select2-highlighted {
+    color: #FFF;
+}
+.select2-results li {
+    list-style: outside none none;
+}
+
+.select2-drop {
+    color: #000;
+}
+
+
+
+
+.campo-txt{
+	float: left;
+    max-width: 280px;
+    margin-left: 20px;
+    width: 100%;
+    position:relative;
+	margin-top:20px;
+  
+	}
+	
+.campo-txt2{
+	float:left;
+	max-width:280px;
+	width:100%;
+	margin-top:20px;
+	}
+	
+.campo-txt3{
+	float:left;
+	max-width:280px;
+	margin-left:20px;
+	width:100%;
+	margin-top:20px;
+	}			
+	
+.campo-select{
+	float:left;
+    clear: both;
+	margin-top:20px;
+}
+
+.campo-select3{
+	float:left;
+	max-width:600px;
+    margin-left: 10px;
+	
+}
+
+.campo-select2{
+	float:left;
+	max-width:289px;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.telefono{
+	width:282px;
+	float: left;
+
+}
+.telefono2{
+    width:282px;
+    float: left;
+
+}
+
+div.checkboxSi input[type="checkbox"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxNo input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+
+div.checkboxNo input[type="checkbox"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+	float:left;
+	width:47%;
+}
+div.checkboxSi input[type="checkbox"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+  	cursor: pointer;
+	float:left
+}
+div.checkboxSi input[type="checkbox"]+label {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+  	cursor: pointer;
+}
+div.checkboxSi {
+    height: auto !important;
+    padding: 5px;
+}
+div.checkboxSi {
+    float: left;
+    margin: 15px 2px 0 20px;
+    height: 25px;
+}
+
+.btn-acept-form{
+
+    background-color: #2A5AA8;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+
+
+}
+
+.btn-acept-form1{
+    background-color: #2a5aa8;
+    border: 1px solid #2a5aa8;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #fff;
+
+
+}
+
+.confirmacion{
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#7B7B7B;
+}
+
+#contenedor1{
+    height: auto;
+    width: 35%;
+    margin:auto;
+    margin-top:15%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: arial;
+
+
+}
+div.checkboxNo input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}	
+
+div.checkboxNo input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}
+	
+div.checkboxNo input[type="checkbox"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxNo input[type="radio"] + label  {
+    background: url(../images/check_circulo.png) no-repeat scroll left top;
+}
+
+div.checkboxNo input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+
+div.checkboxNo input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png) no-repeat scroll -16px top;
+}
+
+
+div.checkboxNo input[type="checkbox"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+div.checkboxNo input[type="radio"] + label {
+ 
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+div.checkboxNO input[type="checkbox"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}
+
+div.checkboxNO input[type="radio"]:checked + label {
+    background: rgba(0, 0, 0, 0) url(../images/check_circulo.png)  no-repeat scroll -16px top;
+}
+
+	.check.checkbox.checkboxNo. {
+    margin: 7px 2px 0;
+}
+
+
+.mensaje-error2 {
+	color: #942828;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    float: left;
+    margin: 0;
+    width: 100%;
+    margin-top: -5px;
+    margin-left: 10px;
+}
+
+.mensaje-error2-ct {
+    color: #942828;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    float: left;
+    margin: 0;
+    width: 100%;
+    margin-top: -5px;
+  }
+.mensaje-error-recuadro{
+    outline-width: medium;
+    outline-color:  #942828;
+}
+
+
+div.formulario div.campos div.campo.error .shadow-left, div.formulario div.campos div.campo.error .shadow-right{
+	border: 1px #993300 solid}
+	
+	
+	
+	
+.intro{
+	width:100%;
+	max-width:920px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    font-size: 12.5px;
+    padding-left:15px;
+    padding-right: 10px;
+	}	
+	
+.cont-campos{
+    min-width: 600px;
+    max-height: 45px;
+    margin-bottom: 35px;
+}
+	
+
+@media (max-width: 600px) {
+  
+.campo-txt3{
+    float:left;
+    max-width:280px;
+    margin-left:0px;
+    width:100%;
+    margin-top:20px;
+    }     
+
+    .campo-txt{
+    float: left;
+    max-width: 280px;
+    margin-left: 0px;
+    width: 100%;
+    position:relative;
+    margin-top:20px;
+  
+    }      
+    
+    .campo-select2{
+    float:left;
+    max-width:289px;
+    margin-left:0px;
+    margin-top:20px;
+}
+
+.cont-campos{
+    min-width: 400px;
+	display:inline;
+}
+
+.img-clave{
+
+    width: 159px;
+
+}
+
+.error-form{
+    
+    width: 86%;
+    margin-bottom: 15px;
+
+
+}
+
+div.habeas-data {
+    float: left;
+    width: 94%;
+     border: 1px solid rgba(0,0,0,0.1);
+    padding-bottom:28px;
+    background: #EFEFEF;
+}
+
+
+.campo{
+
+    font-size: 12px;
+    
+    }
+
+    .campo-ciudad{
+    max-width: 600px;
+    width: auto;
+    font-family: Arial;
+    font-size: 13px;
+    margin-left: 0px;
+    
+    }
+
+    div.campoComentarios textarea {
+    resize: none;
+    height: 163px;
+    padding: 5px;
+    font-family:Arial;
+    font-size:11px;
+    margin-top:16px;
+    width: 100%;
+   
+   
+}
+
+}
+
+
+input:focus::-webkit-input-placeholder 
+{
+    color: transparent;
+}
+
+
+input:focus::-webkit-input-placeholder{
+    color: transparent!important;
+}
+input:focus::-moz-placeholder{
+    color: transparent!important;
+}
+input:focus:-moz-placeholder{
+    color: transparent!important;
+}
+
+
+
+
+	
+	
+		
+	
+
+
+	
+	
+	
+
+	

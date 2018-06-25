@@ -1,0 +1,27 @@
+html{
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.logo{
+    width: 45%;
+    padding: 3%;
+}
+
+.logo img{
+	width: 100%;
+}
+
+.titulo{
+	background-color: #82c341;
+    color: #fff;
+    height: 36px;
+    text-align: center;
+    padding: 2% 0 0 0;
+    font-size: 20px;
+}
+
+.texto{
+	font-size: 14px !important;
+    color: #666666 !important;
+    padding: 5%;
+}

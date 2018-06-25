@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" id="com.corficolombiana.relacioninversionista.portlet.RelacionInversionistaPortlet.eb6e7880361">
+	<portlet>
+		<portlet-name>Corficolombiana - RelacionAccionistaEInversionistas -everis</portlet-name>
+		<display-name xml:lang="en">Corficolombiana - RelacionAccionistaEInversionistas  -everis</display-name>
+		<display-name xml:lang="es">Corficolombiana - RelacionAccionistaEInversionistas  -everis</display-name>
+		<display-name>Corficolombiana - RelacionAccionistaEInversionistas  -everis</display-name>
+		<portlet-class>com.corficolombiana.relacioninversionista.portlet.RelacionAccionistaEInversionistasPortlet</portlet-class>
+		<init-param>
+	      <name>log4j-properties-location</name>
+	      <value>WEB-INF\log4j.properties</value>
+	   </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<supported-locale>es</supported-locale>
+		<resource-bundle>int.everis.harmless1.relacionaccionistaeinversionistas.nl.RelacionAccionistaEInversionistasPortletResource</resource-bundle>
+		<portlet-info>
+			<title>Corficolombiana - RelacionAccionistaEInversionistas - (JSR 286)</title>
+			<short-title>Corficolombiana - RelacionAccionistaEInversionistas - (JSR 286)</short-title>
+			<keywords>Corficolombiana - RelacionAccionistaEInversionistas - (JSR 286)</keywords>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>recaptchaKey</name>
+				<value>6LesyVwUAAAAAORcYlMA1siCPwknGXmypWDMa8_-</value>
+			</preference>
+			<preference>
+				<name>pathFile</name>
+				<value>D:\\prueba</value>
+			</preference>
+		</portlet-preferences>
+		
+		
+	</portlet>
+	
+	<default-namespace>http://RelacionAccionistaEInversionistas/</default-namespace>
+</portlet-app>
