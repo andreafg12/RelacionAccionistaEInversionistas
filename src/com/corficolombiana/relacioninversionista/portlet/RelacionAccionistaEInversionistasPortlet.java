@@ -24,8 +24,6 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 
 	private static final String VIEW = "/jsp/RelacionInversionistaView.jsp";
 	private static final String MSG_FILE_NOT_FOUND = "No se encontró el archivo";
-	private static final String ARCHIVO_VACIO = "Archivo vacío";
-	private static final String ERROR_DOVIEW = "Error en doview";
 	private static Logger logger = Logger.getLogger(RelacionAccionistaEInversionistasPortlet.class);
 
 
@@ -38,117 +36,98 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 			rd.include(request, response);
 
 		} catch (Exception e) {
-			logger.error(ERROR_DOVIEW + e.getMessage());
+			logger.error("ERROR: " + e.getMessage());
 		}
 	}
 
 	public void serveResource(ResourceRequest request, ResourceResponse response) throws PortletException, IOException {
 		String documentoCliente =request.getParameter("nroidentificacion");
+		String nombreArchivo = "";
+		String numerocedula;
+		String anio;
 		String aniorequest =request.getParameter("anioseleccion");
-		String CO=request.getParameter("checkCo");
-		String CP=request.getParameter("checkCp");
-		ArrayList<String> valuesChecked = new ArrayList<String>();
+		String[] valuesChecked=request.getParameterValues("tipoCertificado");
+		String check="";
 				
-		if(CO!=null && CP!=null) {
-			valuesChecked.add(0, "AO");
-			valuesChecked.add(1, "AP");
-		} else {
-			if(CO!=null){
-				valuesChecked.add(0, "AO");
-			}
-			if(CP !=null){
-				valuesChecked.add(0, "AP");
-			}
-		}
-		logger.info("Size Values check: "+valuesChecked.size());
+		logger.info("Size Values check: "+valuesChecked.length);
 
 		try {
 			String pathFile = request.getPreferences().getValue("pathFile", "");
 			File file = new File(pathFile);
+			Collection<File> filesToSend = new ArrayList<File>();
 			if (file.isDirectory()) {
-				Collection<File> filesToSend = buscarArchivos(documentoCliente, aniorequest, valuesChecked, file);
-				
-				logger.info("Length files: "+filesToSend.size());
-				
-				OutputStream outStream = null;
-				FileInputStream des = null;
-				outStream = response.getPortletOutputStream();
-				if(filesToSend.size() > 1) {
-					//Cabecera
-					response.setContentType("application/zip");
-					response.setProperty("Content-Disposition", "attachment; filename=\"certificados.zip\"");
-					
-					BufferedOutputStream bufferedOutputStream = null;
-					ZipOutputStream zipOutputStream = null;
-					bufferedOutputStream = new BufferedOutputStream(outStream);
-					zipOutputStream = new ZipOutputStream(bufferedOutputStream);
-					downloadListFile(filesToSend, zipOutputStream, des);
-					
-					bufferedOutputStream.close();
-				} else {
-					downloadFile(filesToSend, response, outStream, des);
+				for (String value  : valuesChecked) {
+					for (File file2 : file.listFiles()) {
+						nombreArchivo = file2.getName();
+						numerocedula = nombreArchivo.substring(4, (nombreArchivo.length() - 11));
+						anio = nombreArchivo.substring(nombreArchivo.length() - 8, (nombreArchivo.length() - 4));
+						check = nombreArchivo.substring(2,4);
+						if (anio.equals(aniorequest) && numerocedula.equals(documentoCliente) && value.equals(check)) {
+							logger.info("Se encontro el archivo");
+							filesToSend.add(new File(file2.getAbsolutePath()));
+							break;
+						}
+						//terminacion  del if 
+					}
 				}
 			}
+			
+			logger.info("Length files: "+filesToSend.size());
+			if(filesToSend.isEmpty()) {
+				throw new Exception(MSG_FILE_NOT_FOUND);
+			}
+			
+			OutputStream outStream = null;
+			FileInputStream des = null;
+			outStream = response.getPortletOutputStream();
+			if(filesToSend.size() > 1) {
+				//Headers
+				response.setContentType("application/zip");
+				response.setProperty("Content-Disposition", "attachment; filename=\"certificados.zip\"");
+				
+				BufferedOutputStream bufferedOutputStream = null;
+				ZipOutputStream zipOutputStream = null;
+				bufferedOutputStream = new BufferedOutputStream(outStream);
+				zipOutputStream = new ZipOutputStream(bufferedOutputStream);
+				downloadListFile(filesToSend, zipOutputStream, des);
+				
+				if (zipOutputStream != null) {
+					zipOutputStream.finish();
+					zipOutputStream.flush();
+					zipOutputStream.closeEntry();
+				}
+				
+				bufferedOutputStream.close();
+			} else {
+				response.setContentType("application/octet-stream");
+				response.setProperty("Content-disposition", "attachment; filename="+ nombreArchivo);
+				downloadFile(filesToSend, response, outStream, des);
+			}
+
 		} catch (IOException e) {
-			logger.error(MSG_FILE_NOT_FOUND + e.getMessage());
+			logger.error("ERROR: " + e.getMessage());
 			response.getWriter().write("ERROR");
 		} catch (Exception e) {
-			logger.error("Error: " + e.getMessage());
+			logger.error("ERROR: " + e.getMessage());
 			response.getWriter().write("ERROR");
 		}
 	}
 
-
-	private Collection<File> buscarArchivos(String documentoCliente, String aniorequest, ArrayList<String> valuesChecked, File file) throws Exception {
-		String nombreArchivo;
-		String numerocedula;
-		String anio;
-		String check;
-		Collection<File> filesToSend = new ArrayList<File>();
-		for (String value  : valuesChecked) {
-			for (File file2 : file.listFiles()) {
-				if(file2.length() == 0) {
-					throw new Exception(ARCHIVO_VACIO);	
-				}
-				nombreArchivo = file2.getName();
-				numerocedula = nombreArchivo.substring(4, (nombreArchivo.length() - 11));
-				anio = nombreArchivo.substring(nombreArchivo.length() - 8, (nombreArchivo.length() - 4));
-				check = nombreArchivo.substring(2,4);
-				if (anio.equals(aniorequest) && numerocedula.equals(documentoCliente) && value.equals(check)) {
-					logger.info("Se encontro el archivo");
-					filesToSend.add(new File(file2.getAbsolutePath()));
-					break;
-				}
-				//terminacion  del if 
-			}
-		}
-		
-		if(filesToSend.isEmpty()) {
-			throw new Exception(MSG_FILE_NOT_FOUND);
-		}
-		
-		return filesToSend;
-	}
 
 	private void downloadFile(Collection<File> filesToSend, ResourceResponse response, OutputStream outStream, FileInputStream des) throws Exception {
 		for(File f: filesToSend) {
 			logger.info("length file: " + f.length()+" Nombre: "+ f.getName());
-			String minetype = "application/octet-stream";
-			String headerkey = "Content-Disposition";
-			String headerValue = String.format("attahcment; filename= \"%s\"", f.getName());
-			response.setContentType(minetype);
-			response.setProperty(headerkey, headerValue);
 			response.setContentLength((int) f.length());
 			try {
-				des = new FileInputStream(f);
-				byte[] buffer = new byte[4096];
-				int byteRead = -1;
-				while ((byteRead = des.read(buffer)) != -1) {
-					outStream.write(buffer, 0, byteRead);
-		
-				}
-				outStream.flush();
-				outStream.close();
+			des = new FileInputStream(f);
+			byte[] buffer = new byte[4096];
+			int byteRead = -1;
+			while ((byteRead = des.read(buffer)) != -1) {
+				outStream.write(buffer, 0, byteRead);
+	
+			}
+			outStream.flush();
+			outStream.close();
 			} finally {
 				if(des != null) {
 					des.close();
@@ -181,9 +160,6 @@ public class RelacionAccionistaEInversionistasPortlet extends javax.portlet.Gene
 				if (zipEntry != null) {
 					zipOutputStream.closeEntry();
 				}
-				zipOutputStream.finish();
-				zipOutputStream.flush();
-				zipOutputStream.closeEntry();
 			}
 		}
 	}
